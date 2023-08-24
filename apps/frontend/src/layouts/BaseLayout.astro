@@ -1,0 +1,25 @@
+---
+import BaseHeader from '../components/BaseHeader.astro'
+import BaseFooter from '../components/BaseFooter.astro'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <BaseHeader />
+    asdf222
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Posts</a>
+      <a href="#">Contact</a>
+    </nav>
+    <!-- <h1>{title}</h1> -->
+    <article>
+      <slot /> <!-- your content is injected here -->
+    </article>
+    <BaseFooter />
+  </body>
+</html>

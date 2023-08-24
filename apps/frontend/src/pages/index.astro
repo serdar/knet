@@ -1,0 +1,31 @@
+---
+import getGithubProfileStats from "../lib/github";
+import fetchApi from "../lib/strapi";
+import type Post from "../interfaces/post";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = await fetchApi<Post[]>({
+  endpoint: "posts",
+  wrappedByKey: "data",
+});
+
+import { Greeting } from "../components/Greeting.js";
+
+const ghStats = await getGithubProfileStats();
+---
+
+<BaseLayout>
+  Recent Posts d
+  <Greeting />
+  github followers: { ghStats.following }
+  <div>
+
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.attributes.link}/`}>{post.attributes.title}</a>
+        </li>
+      ))
+    }
+  </div>
+</BaseLayout>
