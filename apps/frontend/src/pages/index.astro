@@ -11,13 +11,16 @@ const posts = await fetchApi<Post[]>({
 
 import { Greeting } from "../components/Greeting.js";
 
-const ghStats = await getGithubProfileStats();
+const ghStats = getGithubProfileStats().then(data => {
+  return data.following
+} 
+);
 ---
 
 <BaseLayout>
   Recent Posts d
   <Greeting />
-  github followers: { ghStats.following }
+  github followers: {ghStats }
   <div>
 
     {
