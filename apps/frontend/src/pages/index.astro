@@ -7,19 +7,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const posts = await fetchApi<Post[]>({
   endpoint: "posts",
   wrappedByKey: "data",
+  query: {
+    "sort[0]":"id:desc"
+  }
 });
 
 import { Greeting } from "../components/Greeting.js";
 
-const ghStats = await getGithubProfileStats();
+const ghStats = `n/a`;//getGithubProfileStats().then(data => {
+//   return data.following
+// } 
+// );
+
 ---
 
-<BaseLayout>
-  Recent Posts d
+<BaseLayout title="Home">
   <Greeting />
-  github followers: { ghStats.following }
+  github followers: { ghStats }
   <div>
-
     {
       posts.map((post) => (
         <li>

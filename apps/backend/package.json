@@ -4,14 +4,13 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
+    "lint": "tsc",
     "develop": "strapi develop",
     "dev": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "hi": "node -e 'console.log(`backend-hi`)'"
-
-  },
+    "strapi": "strapi"
+},
   "dependencies": {
     "@strapi/plugin-i18n": "4.11.7",
     "@strapi/plugin-users-permissions": "4.11.7",
