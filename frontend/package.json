@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "knet-frontend",
   "type": "module",
   "module": "nodenext",
   "version": "0.0.1",
