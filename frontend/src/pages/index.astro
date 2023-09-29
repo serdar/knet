@@ -1,8 +1,10 @@
 ---
-import getGithubProfileStats from "../lib/github";
 import fetchApi from "../lib/strapi";
 import type Post from "../interfaces/post";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+console.log(`astro`)
+console.log(`env: {0}`,import.meta.env.STRAPI_URL)
 
 const posts = await fetchApi<Post[]>({
   endpoint: "posts",
@@ -12,18 +14,9 @@ const posts = await fetchApi<Post[]>({
   }
 });
 
-import { Greeting } from "../components/Greeting.js";
-
-const ghStats = `n/a`;//getGithubProfileStats().then(data => {
-//   return data.following
-// } 
-// );
-
 ---
 
 <BaseLayout title="Home">
-  <Greeting />
-  github followers: { ghStats }
   <div>
     {
       posts.map((post) => (
