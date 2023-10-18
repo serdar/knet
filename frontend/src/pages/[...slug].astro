@@ -1,0 +1,28 @@
+---
+console.log("SLUGGGGERRRRR");
+import type { GetStaticPaths } from "astro";
+import fetchApi from "../lib/strapi";
+import type Post from "../interfaces/post";
+console.log(`params:`, Astro.params)
+
+export async function getStaticPaths() {
+    const posts = await fetchApi<Post[]>({
+        endpoint: "post",
+        wrappedByKey: "data",
+        query: {
+            "slug": "knet-v2"
+        },
+    });
+    return [
+        // <-- Array
+        { 
+            params: { 
+                slug: "2022/09/knet-v2" 
+            } 
+        }
+    ];
+}
+const { title, text } = Astro.props;
+---
+
+<p>page</p>

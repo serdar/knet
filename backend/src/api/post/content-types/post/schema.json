@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "text"
-    },
     "pubDate": {
       "type": "datetime"
     },
@@ -27,8 +24,18 @@
     "title": {
       "type": "string"
     },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "default": "/YYYY/MM/slug"
+    },
+    "slugg": {
+      "type": "customField",
+      "customField": "plugin::slugger.slugger"
     }
   }
 }
