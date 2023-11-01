@@ -14,7 +14,7 @@ export const Input = React.forwardRef((props: any, ref) => {
 
   return (
     <label>
-      {intlLabel}
+      some input
       <input
         name={name}
         disabled={disabled}

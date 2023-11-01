@@ -27,15 +27,6 @@
     "description": {
       "type": "richtext",
       "required": false
-    },
-    "slug": {
-      "type": "string",
-      "required": true,
-      "default": "/YYYY/MM/slug"
-    },
-    "slugg": {
-      "type": "customField",
-      "customField": "plugin::slugger.slugger"
     }
   }
 }

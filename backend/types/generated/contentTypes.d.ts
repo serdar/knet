@@ -379,10 +379,6 @@ export interface ApiPostPost extends Schema.CollectionType {
     link: Attribute.String;
     title: Attribute.String;
     description: Attribute.RichText;
-    slug: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'/YYYY/MM/slug'>;
-    slugg: Attribute.String & Attribute.CustomField<'plugin::slugger.slugger'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

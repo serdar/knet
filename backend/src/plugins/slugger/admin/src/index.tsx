@@ -1,9 +1,9 @@
-import { prefixPluginTranslations } from '@strapi/helper-plugin';
+import { prefixPluginTranslations } from "@strapi/helper-plugin";
 
-import pluginPkg from '../../package.json';
-import pluginId from './pluginId';
-import Initializer from './components/Initializer';
-import PluginIcon from './components/PluginIcon';
+import pluginPkg from "../../package.json";
+import pluginId from "./pluginId";
+import Initializer from "./components/Initializer";
+import PluginIcon from "./components/PluginIcon";
 
 const name = pluginPkg.strapi.name;
 
@@ -21,7 +21,7 @@ export default {
         id: "slugger.color.description",
         defaultMessage: "Configure slug",
       },
-     // icon: null, // don't forget to create/import your icon component
+      // icon: null, // don't forget to create/import your icon component
       components: {
         Input: async () =>
           import(
@@ -41,9 +41,8 @@ export default {
         defaultMessage: name,
       },
       Component: async () => {
-        const component = await import(/* webpackChunkName: "[request]" */ './pages/App');
-
-        return component;
+        // const component = await import(/* webpackChunkName: "[request]" */ './pages/App');
+        // return component;
       },
       permissions: [
         // Uncomment to set the permissions of the plugin here
@@ -61,9 +60,6 @@ export default {
     };
 
     app.registerPlugin(plugin);
-
-
-
   },
 
   bootstrap(app: any) {},

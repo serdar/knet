@@ -1,10 +1,8 @@
-
 export default {
-    // ...
-    'slugger': {
-      enabled: true,
-      resolve: './src/plugins/slugger' // path to plugin folder
-    },
-    // ...
-  }
-
+  // ...
+  slugger: {
+    enabled: false,
+    resolve: "./src/plugins/slugger", // path to plugin folder
+  },
+  // ...
+};

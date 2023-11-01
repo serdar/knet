@@ -4,7 +4,7 @@
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "slugger",
-    "description": "Generates a slug in the YYY/MM/slug format",
+    "description": "Generates a slug in the YYYY/MM/slug format",
     "kind": "plugin"
   },
   "dependencies": {
