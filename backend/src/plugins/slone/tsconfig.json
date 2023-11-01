@@ -11,7 +11,7 @@
   "exclude": [
     "node_modules/",
     "dist/",
-    "admin/src/components/Input/*.js",
+
     // Do not include server files in the server compilation
     "server/",
     // Do not include test files

@@ -12,11 +12,12 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.14.3",
-    "@strapi/plugin-users-permissions": "4.14.3",
-    "@strapi/strapi": "4.14.3",
+    "@strapi/plugin-i18n": "4.15.0",
+    "@strapi/plugin-users-permissions": "4.15.0",
+    "@strapi/strapi": "4.15.0",
     "mysql": "2.18.1",
-    "pg": "^8.11.1"
+    "pg": "^8.11.1",
+    "strapi-advanced-uuid": "^1.1.4"
   },
   "author": {
     "name": "A Strapi developer"

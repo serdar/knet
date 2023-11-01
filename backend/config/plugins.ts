@@ -1,8 +1,10 @@
 export default {
-  // ...
-  slugger: {
-    enabled: false,
-    resolve: "./src/plugins/slugger", // path to plugin folder
+  slone: {
+    // my-plugin is going to be the internal name used for this plugin
+    enabled: true,
+    resolve: "./src/plugins/slone",
+    config: {
+      // user plugin config goes here
+    },
   },
-  // ...
 };

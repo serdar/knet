@@ -379,6 +379,8 @@ export interface ApiPostPost extends Schema.CollectionType {
     link: Attribute.String;
     title: Attribute.String;
     description: Attribute.RichText;
+    AUID: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

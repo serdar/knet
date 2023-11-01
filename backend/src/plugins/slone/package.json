@@ -1,10 +1,10 @@
 {
-  "name": "slugger",
+  "name": "slone",
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "slugger",
-    "description": "Generates a slug in the YYYY/MM/slug format",
+    "name": "slone",
+    "description": "Description of slone plugin",
     "kind": "plugin"
   },
   "dependencies": {
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@strapi/typescript-utils": "^4.6.0",
-    "@types/react": "^17.0.53",
+    "@types/react": "^18.0",
     "@types/react-dom": "^18.0.28",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
@@ -40,7 +40,7 @@
     }
   ],
   "engines": {
-    "node": ">=16.0.0 <=20.x.x",
+    "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "scripts": {
