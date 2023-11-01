@@ -1,10 +1,10 @@
-import { Strapi } from '@strapi/strapi';
-
+import { Strapi } from "@strapi/strapi";
+import pluginId from "../admin/src/pluginId";
 export default ({ strapi }: { strapi: Strapi }) => {
   // register phase
   strapi.customFields.register({
     name: "slugger",
-    plugin: "slugger",
-    type: "string"
+    plugin: pluginId,
+    type: "string",
   });
 };

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-
-import { useIntl } from "react-intl";
+import React, { useEffect, useState, useRef } from "react";
 
 export const Input = React.forwardRef((props: any, ref) => {
-  const { attribute, disabled, intlLabel, name, onChange, required, value } = props; // these are just some of the props passed by the content-manager
+  const { attribute, disabled, intlLabel, name, onChange, required, value } =
+    props; // these are just some of the props passed by the content-manager
 
-  const { formatMessage } = useIntl();
+  const defaultValue: string = `some input`;
 
   const handleChange = (e) => {
     onChange({
@@ -17,13 +16,12 @@ export const Input = React.forwardRef((props: any, ref) => {
     <label>
       {intlLabel}
       <input
-        
         name={name}
         disabled={disabled}
-        value={new Date().toDateString()}
+        value={defaultValue}
         required={required}
         onChange={handleChange}
-        defaultValue={new Date().getFullYear() + "/" + new Date().getMonth() + "/slug"}
+        defaultValue={defaultValue}
       />
     </label>
   );
