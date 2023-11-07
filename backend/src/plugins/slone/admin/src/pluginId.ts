@@ -1,5 +1,5 @@
 import pluginPkg from '../../package.json';
 
-const pluginId = 'slone';//pluginPkg.name.replace(/^(@[^-,.][\w,-]+\/|strapi-)plugin-/i, '');
+const pluginId = pluginPkg.strapi.name
 
 export default pluginId;

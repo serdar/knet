@@ -27,10 +27,6 @@
     "description": {
       "type": "richtext",
       "required": false
-    },
-    "AUID": {
-      "type": "customField",
-      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }

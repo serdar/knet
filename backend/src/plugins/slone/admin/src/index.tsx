@@ -3,32 +3,66 @@ import { prefixPluginTranslations } from '@strapi/helper-plugin';
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
 import Initializer from './components/Initializer';
-import PluginIcon from './components/PluginIcon';
+import InputIcon from './components/InputIcon';
+import {getTrad} from './utils/helpers';
 
 const name = pluginPkg.strapi.name;
 
 export default {
   register(app: any) {
-    app.addMenuLink({
-      to: `/plugins/${pluginId}`,
-      icon: PluginIcon,
+    app.customFields.register({
+      name: "uuid",
+      pluginId,
+      type: "string",
       intlLabel: {
-        id: `${pluginId}.plugin.name`,
-        defaultMessage: name,
+        id: getTrad("form.label"),
+        defaultMessage: "Advanced UUID",
       },
-      Component: async () => {
-        const component = await import(/* webpackChunkName: "[request]" */ './pages/App');
-
-        return component;
+      intlDescription: {
+        id: getTrad("form.description"),
+        defaultMessage: "Generates a UUID v4",
       },
-      permissions: [
-        // Uncomment to set the permissions of the plugin here
-        // {
-        //   action: '', // the action name should be plugin::plugin-name.actionType
-        //   subject: null,
-        // },
-      ],
+      icon: InputIcon,
+      components: {
+        Input: async () => import(/* webpackChunkName: "input-uuid-component" */ "./components/Input"),
+      },
+      options: {
+        base: [
+          {
+            intlLabel: {
+              id: getTrad("form.field.uuidFormat"),
+              defaultMessage: "UUID Format"
+            },
+            name: "options.uuid-format",
+            type: "text"
+          }
+        ],
+        advanced: [
+          {
+            sectionTitle: {
+              id: 'global.settings',
+              defaultMessage: 'Settings',
+            },
+            items: [
+              {
+                name: 'private',
+                type: 'checkbox',
+                intlLabel: {
+                  id: 'form.attribute.item.privateField',
+                  defaultMessage: 'Private field',
+                },
+                description: {
+                  id: 'form.attribute.item.privateField.description',
+                  defaultMessage: 'This field will not show up in the API response',
+                },
+              },
+            ],
+          },
+        ],
+        validator: () => {},
+      },
     });
+
     const plugin = {
       id: pluginId,
       initializer: Initializer,
