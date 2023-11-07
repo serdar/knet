@@ -379,6 +379,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     link: Attribute.String;
     title: Attribute.String;
     description: Attribute.RichText;
+    TestField: Attribute.String & Attribute.CustomField<'plugin::slone.uuid'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

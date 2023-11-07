@@ -27,6 +27,10 @@
     "description": {
       "type": "richtext",
       "required": false
+    },
+    "TestField": {
+      "type": "customField",
+      "customField": "plugin::slone.uuid"
     }
   }
 }

@@ -42,7 +42,7 @@ const Input = ({
   labelAction,
   name,
   onChange,
-  value: initialValue = ""
+  value: initialValue = "test"
 }: {
   attribute: any;
   description: any;
