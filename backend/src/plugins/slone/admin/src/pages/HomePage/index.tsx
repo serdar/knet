@@ -12,6 +12,8 @@ const HomePage = () => {
     <div>
       <h1>{pluginId}&apos;s HomePage</h1>
       <p>Happy coding</p>
+      <p>Happy coding</p>
+      <p>Happy coding</p>
     </div>
   );
 };
