@@ -28,8 +28,11 @@
       "type": "richtext",
       "required": false
     },
-    "TestField": {
+    "slug": {
       "type": "customField",
+      "options": {
+        "slug-format": "d"
+      },
       "customField": "plugin::slone.uuid"
     }
   }

@@ -42,7 +42,7 @@ const Input = ({
   labelAction,
   name,
   onChange,
-  value: initialValue = "test"
+  value: initialValue = ""
 }: {
   attribute: any;
   description: any;
@@ -60,15 +60,16 @@ const Input = ({
   const ref = useRef("");
 
   const getUUIDFormat = () => {
-    if (attribute.options && attribute.options["uuid-format"]) {
-      return attribute.options["uuid-format"];
+    if (attribute.options && attribute.options["slug-format"]) {
+      return attribute.options["slug-format"];
     }
     return null;
   };
 
   const generateNewUUID = () => {
-    const uuidFormat = getUUIDFormat();
-    return uuidFormat ? generateUUID(uuidFormat) : v4();
+    // const uuidFormat = getUUIDFormat();
+    // return uuidFormat ? generateUUID(uuidFormat) : v4();
+    return "YYYY/MM/<slug>"
   };
 
   useEffect(() => {
@@ -111,7 +112,7 @@ const Input = ({
             onChange={onChange}
             labelAction={labelAction}
             placeholder={placeholder}
-            disabled={disabled || true}
+            disabled={disabled || false}
             required
             value={initialValue}
             ref={ref}

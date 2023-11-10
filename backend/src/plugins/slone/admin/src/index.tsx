@@ -31,9 +31,9 @@ export default {
           {
             intlLabel: {
               id: getTrad("form.field.uuidFormat"),
-              defaultMessage: "UUID Format"
+              defaultMessage: "Slug Format"
             },
-            name: "options.uuid-format",
+            name: "options.slug-format",
             type: "text"
           }
         ],

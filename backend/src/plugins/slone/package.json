@@ -6,7 +6,7 @@
     "name": "slone",
     "description": "Description of slone plugin",
     "kind": "plugin",
-    "displayName": "Strapi Advanced UUID"
+    "displayName": "Slone"
   },
   "dependencies": {
     "@strapi/icons": "^1.6.3",
