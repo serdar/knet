@@ -69,7 +69,17 @@ const Input = ({
   const generateNewUUID = () => {
     // const uuidFormat = getUUIDFormat();
     // return uuidFormat ? generateUUID(uuidFormat) : v4();
-    return "YYYY/MM/<slug>"
+    const postDate = new Date();
+    const postYear = postDate.getFullYear();
+    const postMonth = postDate.getMonth() + 1;
+    let postMonthStr: string;
+
+    if (postMonth < 10)
+      postMonthStr = '0'+ postMonth.toString()
+    else  
+      postMonthStr = postMonth.toString();
+ 
+    return `/${postYear}/${postMonthStr}/slug`;//"YYYY/MM/<slug>"
   };
 
   useEffect(() => {
