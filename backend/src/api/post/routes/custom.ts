@@ -3,7 +3,7 @@ module.exports = {
     {
       method: "GET",
       path: "/posts/:year/:month/:slug",
-      handler: "post.findOne",
+      handler: "post.getBySlug",
     },
   ],
 };

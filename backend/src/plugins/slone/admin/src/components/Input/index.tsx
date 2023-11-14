@@ -3,6 +3,7 @@ import { useIntl } from "react-intl";
 import styled from "styled-components";
 import { Refresh } from "@strapi/icons";
 import { v4, validate } from "uuid";
+
 import {
   Box,
   Field,
@@ -15,6 +16,8 @@ import {
   Flex,
 } from "@strapi/design-system";
 import { generateUUID, validateUUID } from "../../utils/helpers";
+
+
 
 export const FieldActionWrapper = styled(FieldAction)`
   svg {
@@ -55,6 +58,9 @@ const Input = ({
   onChange(v: any): void;
   value: string;
 }) => {
+
+
+
   const { formatMessage } = useIntl();
   const [invalidUUID, setInvalidUUID] = useState<boolean>(false);
   const ref = useRef("");
@@ -66,7 +72,7 @@ const Input = ({
     return null;
   };
 
-  const generateNewUUID = () => {
+  const generateNewUUID = async () => {
     // const uuidFormat = getUUIDFormat();
     // return uuidFormat ? generateUUID(uuidFormat) : v4();
     const postDate = new Date();
@@ -79,6 +85,23 @@ const Input = ({
     else  
       postMonthStr = postMonth.toString();
  
+      const strUrl = window.location.pathname;
+    const entityId = strUrl.split('/').slice(-1)
+
+    //console.log(strapi.config.get('server.host', 'ASDF'));
+    // host: env('HOST', '0.0.0.0'),
+    // port: env.int('PORT', 1337),
+    // const fetchUrl = `http://localhost:1337/api/posts/${entityId}`
+    // console.log(`f`, fetchUrl)
+    // const data = await fetch(fetchUrl, {
+    //   method: 'GET',
+    // })
+    // const d = await data.json();
+
+    // const {data:{attributes:{title}}} = d;
+    // console.log(`m:`, window.location.pathname);
+    // console.log(`s:`, title);
+
     return `/${postYear}/${postMonthStr}/slug`;//"YYYY/MM/<slug>"
   };
 
