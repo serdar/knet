@@ -7,4 +7,6 @@ export default ({ strapi }: { strapi: Strapi }) => {
     plugin: pluginId,
     type: 'string',
   })
+  console.log(`xxxxx-register`)
+  strapi.log.info(`xxxxx-register`)
 };

@@ -45,7 +45,7 @@ const Input = ({
   labelAction,
   name,
   onChange,
-  value: initialValue = ""
+  value: initialValue = "test"
 }: {
   attribute: any;
   description: any;
@@ -85,23 +85,25 @@ const Input = ({
     else  
       postMonthStr = postMonth.toString();
  
-      const strUrl = window.location.pathname;
+    const strUrl = window.location.pathname;
     const entityId = strUrl.split('/').slice(-1)
 
     //console.log(strapi.config.get('server.host', 'ASDF'));
     // host: env('HOST', '0.0.0.0'),
     // port: env.int('PORT', 1337),
-    // const fetchUrl = `http://localhost:1337/api/posts/${entityId}`
-    // console.log(`f`, fetchUrl)
-    // const data = await fetch(fetchUrl, {
-    //   method: 'GET',
-    // })
-    // const d = await data.json();
+    alert(window.location.pathname)
+    alert(strUrl.split('/').slice(-1))
+    const fetchUrl = `http://localhost:1337/api/posts/${entityId}`
+    alert(fetchUrl)
+    const data = await fetch(fetchUrl, {
+      method: 'GET',
+    })
+    const d = await data.json();
 
-    // const {data:{attributes:{title}}} = d;
-    // console.log(`m:`, window.location.pathname);
-    // console.log(`s:`, title);
-
+    const {data:{attributes:{title}}} = d;
+    console.log(`m:`, window.location.pathname);
+    console.log(`s:`, title);
+    alert(title)
     return `/${postYear}/${postMonthStr}/slug`;//"YYYY/MM/<slug>"
   };
 
@@ -152,6 +154,7 @@ const Input = ({
             endAction={
               <FieldActionWrapper
                 onClick={() => {
+                  
                   const newUUID = generateNewUUID();
                   onChange({ target: { value: newUUID, name } });
                 }}
