@@ -3,7 +3,7 @@ import { useIntl } from "react-intl";
 import styled from "styled-components";
 import { Refresh } from "@strapi/icons";
 import { v4, validate } from "uuid";
-
+import slugify from 'slugify';
 import {
   Box,
   Field,
@@ -45,7 +45,7 @@ const Input = ({
   labelAction,
   name,
   onChange,
-  value: initialValue = "test"
+  value: initialValue = "t"
 }: {
   attribute: any;
   description: any;
@@ -59,8 +59,6 @@ const Input = ({
   value: string;
 }) => {
 
-
-
   const { formatMessage } = useIntl();
   const [invalidUUID, setInvalidUUID] = useState<boolean>(false);
   const ref = useRef("");
@@ -72,7 +70,7 @@ const Input = ({
     return null;
   };
 
-  const generateNewUUID = async () => {
+  const generateNewUUID = () => {
     // const uuidFormat = getUUIDFormat();
     // return uuidFormat ? generateUUID(uuidFormat) : v4();
     const postDate = new Date();
@@ -91,20 +89,33 @@ const Input = ({
     //console.log(strapi.config.get('server.host', 'ASDF'));
     // host: env('HOST', '0.0.0.0'),
     // port: env.int('PORT', 1337),
-    alert(window.location.pathname)
-    alert(strUrl.split('/').slice(-1))
-    const fetchUrl = `http://localhost:1337/api/posts/${entityId}`
-    alert(fetchUrl)
-    const data = await fetch(fetchUrl, {
-      method: 'GET',
-    })
-    const d = await data.json();
+    // alert(window.location.pathname)
+    // alert(strUrl.split('/').slice(-1))
+    // const fetchUrl = `http://localhost:1337/api/posts/${entityId}`
+    // alert(`f:${fetchUrl}`)
+    // const data = await fetch(fetchUrl, {
+    //   method: 'GET',
+    // })
+    // const d = await data.json();
 
-    const {data:{attributes:{title}}} = d;
-    console.log(`m:`, window.location.pathname);
-    console.log(`s:`, title);
-    alert(title)
-    return `/${postYear}/${postMonthStr}/slug`;//"YYYY/MM/<slug>"
+    // const {data:{attributes:{title}}} = d;
+    // console.log(`m:`, window.location.pathname);
+    // console.log(`s:`, title);
+    const titleText:string = document.getElementById('title')?.attributes['value'].value;
+
+    if (titleText === '') {
+      alert('Title required')
+      return
+    }
+
+    const sluggedtext = slugify(titleText)
+    const slugValue = `/${postYear}/${postMonthStr}/${sluggedtext}`
+    alert(slugValue);
+    if (initialValue && initialValue !== ref.current)
+    {
+      ref.current = slugValue
+    }
+    return slugValue;//"YYYY/MM/<slug>"
   };
 
   useEffect(() => {

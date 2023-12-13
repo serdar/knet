@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "tsc",
     "develop": "strapi develop",
-    "dev": "strapi develop -- --watch-admin",
+    "dev": "strapi develop ",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
@@ -17,8 +17,9 @@
     "@strapi/strapi": "4.15.0",
     "mysql": "2.18.1",
     "pg": "^8.11.1",
-    "uuid": "^9.0.1",
-    "randexp": "^0.5.3"
+    "randexp": "^0.5.3",
+    "slugify": "^1.6.6",
+    "uuid": "^9.0.1"
   },
   "author": {
     "name": "A Strapi developer"
