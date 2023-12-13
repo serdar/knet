@@ -1,0 +1,7 @@
+{
+  "form.label": "Slone hackable URL",
+  "form.description": "Allows a hackable URL",
+  "form.field.generate": "Generate",
+  "form.field.error": "The UUID format is invalid.",
+  "form.field.uuidFormat": "UUID format2"
+}

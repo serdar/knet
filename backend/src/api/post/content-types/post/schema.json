@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "text"
-    },
     "pubDate": {
       "type": "datetime"
     },
@@ -26,6 +23,17 @@
     },
     "title": {
       "type": "string"
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "slug": {
+      "type": "customField",
+      "options": {
+        "slug-format": "d"
+      },
+      "customField": "plugin::slone.uuid"
     }
   }
 }

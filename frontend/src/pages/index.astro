@@ -4,7 +4,7 @@ import type Post from "../interfaces/post";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 console.log(`astro`)
-console.log(`env: {0}`,import.meta.env.STRAPI_URL)
+console.log(`env: ${import.meta.env.STRAPI_URL}`)
 
 const posts = await fetchApi<Post[]>({
   endpoint: "posts",
@@ -15,15 +15,19 @@ const posts = await fetchApi<Post[]>({
 });
 
 ---
-
 <BaseLayout title="Home">
   <div>
     {
-      posts.map((post) => (
+      posts.map((post) => {
+        const pubYear = new Date(post.attributes.pubDate).getFullYear();
+        const pubMonth = new Date(post.attributes.pubDate).getMonth();
+        
+        return (
         <li>
-          <a href={`/blog/${post.attributes.link}/`}>{post.attributes.title}</a>
+          <a href={`/${pubYear}/${pubMonth > 9 ? pubMonth+1 : "0" + (pubMonth+1).toString()}/${post.attributes.slug}/`}>{post.attributes.title}</a>
         </li>
-      ))
+        )
+      })
     }
   </div>
 </BaseLayout>
